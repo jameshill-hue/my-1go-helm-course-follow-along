@@ -10,6 +10,8 @@ Welcome to the **1go Helm Masterclass** repository! This repository contains all
 
 **Original Repository,full course content:** [https://github.com/lm-academy/helm-course](https://github.com/lm-academy/helm-course)
 
+**Notion URL -Created Notes:** [https://www.notion.so/Helm-Learning-1go-26f0da3af7b5804bba97d1104ee2a4c3](https://www.notion.so/Helm-Learning-1go-26f0da3af7b5804bba97d1104ee2a4c3)
+
 ## 🎯 About This Course
 
 This masterclass takes you from Helm basics to advanced concepts, covering everything you need to become proficient with Helm, the Kubernetes package manager. You'll learn how to create, manage, and deploy Helm charts effectively.
