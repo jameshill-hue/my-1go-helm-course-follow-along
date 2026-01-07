@@ -1,0 +1,6 @@
+apiVersion: v2
+name: nginx
+description: A helm chart for deploying nginx to Kubnetes
+type: application
+version: 0.1.0
+appVersion: 1.27.0  #Got version from here https://hub.docker.com/_/nginx/tags , however used the version 1.27.0 to follow course

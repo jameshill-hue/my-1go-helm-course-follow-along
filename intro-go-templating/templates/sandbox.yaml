@@ -1,0 +1,23 @@
+#I am a comment , will remain in generated YAML
+{{- /* I am a GO comment, and i will NOT remain. */}}
+{{- /* <function name> <arg1> <arg2> ... Examples:
+lower .Values.test ,
+replace " " "-" .Values.test
+lower .Values.test | replace " " "-" 
+ */}}
+test: {{ lower .Values.test | replace " " "-"  }}  
+test2: {{ .Values.test2 }}
+labels:
+    {{- /* the app label comes from release */}}
+    app: {{ .Release.Name }}
+    {{- /* chart label comes from Chart information */}}
+    chart: {{ .Chart.Name }}
+    {{- if eq .Values.environment "production" }}
+    environment: productiom
+    build: stable
+    public-ingress: true
+    {{- else }}
+    environment: dev
+    build: alpha
+    public-ingress: false
+    {{- end }}

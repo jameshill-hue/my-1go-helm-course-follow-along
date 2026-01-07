@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+
+# Helm
+# Note: .tgz files are kept for chart repository examples
+

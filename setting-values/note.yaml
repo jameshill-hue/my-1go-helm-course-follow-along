@@ -1,0 +1,21 @@
+#December re-run, used vesrion 28.0.0 chart below command is set password via command li ne
+#Set values using CLI
+#helm install local-wp bitnami/wordpress --version=28.0.0 \
+ #  --set "mariadb.auth.rootPassword=jamesroutepassword" \
+ #  --set "mariadb.auth.password=jamesroutepassword" 
+
+
+
+#create secret for our password in custom-values
+kubectl create secret generic custom-wp-credentials --from-literal wordpress-password=jamespassword
+
+
+# get password values by decoding:
+kubectl get secret custom-wp-credentials -o jsonpath='{.data.mariadb-password}' | base64 -d
+
+#install with customvalues
+helm install local-wp bitnami/wordpress --version=28.0.0 --values custom-values.yaml
+
+helm upgrade --reuse-values --values custom-values.yaml local-wp bitnami/wordpress --version 28.0.0  
+
+helm upgrade --reuse-values --values custom-values.yaml --set "image.tag=nonexistent" local-wp bitnami/wordpress --version 23.1.28 --atomic --cleanup-on-fail --debug --timeout 2m

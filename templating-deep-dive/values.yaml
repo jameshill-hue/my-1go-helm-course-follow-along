@@ -1,0 +1,48 @@
+# @param customName allows to set a custom resource name for the k8's resources in the chart
+#  Defaults to {{ Release.Name }}-{{ .Chart.Name }}
+customName: ''
+
+#para replicaCount Number of Nginx replicas to deploy
+replicaCount: 3
+
+# Settings for Nginx Image
+# @para image.name Nginx image name to use
+# @para image.tag Nginx image tag to use
+image:
+  name: 'nginx'  #add this to
+  tag: '1.27.0'
+
+## Settings for Nginx Container secrurity context
+## @para securityContext.enabled
+## @para securityContext.runAsUser 
+## @para securityContext.fsGroup 
+securityContext:
+  enabled: true
+  runAsUser: 1000
+  fsGroup: 2000
+
+## Nginx container ports
+##
+## @para containerPorts.http
+containerPorts:
+  http: 80
+
+# Settings for nginx service 
+## @para service.enabled Wheather to deploy the service or not 
+## Settings for NGINX services
+## services is a map with the following schema
+##
+## @param services["*"].type The type of service in front of the Nginx pods
+## @param services["*"].port The port where the service is receiving requests
+services:
+  svc1:
+    type: ClusterIP
+    port: 80
+  svc2:
+    type: NodePort
+    port: 30007
+
+
+
+  
+
