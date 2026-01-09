@@ -34,6 +34,11 @@ dependencies:
   - name: postgresql
     version: 16.2.2  # Specific version of the PostgreSQL chart
     repository: https://charts.bitnami.com/bitnami  # Bitnami Helm chart repository URL 
+  # Local subchart dependency (not from a repository)
+  # This is a subchart created locally in the charts/ directory
+  # Local subcharts don't need a repository URL - Helm looks in charts/ directory
   - name: demo-subchart
     version: 0.1.0
+    # Note: No repository specified means it's a local subchart
+    # The subchart must exist in the charts/demo-subchart/ directory
     
