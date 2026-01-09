@@ -22,3 +22,15 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "1.0.0"
+
+# Chart Dependencies
+# Dependencies are subcharts that this chart requires to function properly.
+# When this chart is installed, Helm will also install all dependencies.
+# Dependencies are downloaded and stored in the charts/ directory.
+# The Chart.lock file tracks the exact versions of dependencies that were resolved.
+dependencies:
+  # PostgreSQL database dependency from Bitnami charts repository
+  # This provides the PostgreSQL database that the config-store application requires
+  - name: postgresql
+    version: 16.2.2  # Specific version of the PostgreSQL chart
+    repository: https://charts.bitnami.com/bitnami  # Bitnami Helm chart repository URL 
