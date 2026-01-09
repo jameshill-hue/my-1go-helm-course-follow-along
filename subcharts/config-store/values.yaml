@@ -159,3 +159,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+demo-subchart:
+  customValue: 'Hello from config-store'
