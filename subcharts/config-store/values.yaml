@@ -160,9 +160,12 @@ tolerations: []
 
 affinity: {}
 
-demo-subchart:
-  customValue: 'Hello from config-store'
-
-global:
-  defaultStorageClass: 'my-custom-storageclass'
-
+postgresql:
+  auth:
+    username: config_store_user
+    database: config_store_db
+    password: postgres-creds
+    existingSecret: postgres-creds
+    secretKeys:
+      userPasswordKey: password
+  fullnameOverride: postgresql-db

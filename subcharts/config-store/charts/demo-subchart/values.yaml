@@ -1,7 +1,0 @@
-# Default values for demo-subchart
-# These values can be overridden by the parent chart (config-store)
-# To override from parent chart, add values under "demo-subchart:" key in parent values.yaml
-# Example in parent values.yaml:
-#   demo-subchart:
-#     customValue: 'Hello from config-store'
-customValue: 'Hello from demo-chart'
