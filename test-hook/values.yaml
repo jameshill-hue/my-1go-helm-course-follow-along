@@ -16,8 +16,8 @@ image:
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
 # This is to override the chart name.
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: ''
+fullnameOverride: ''
 
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
@@ -59,7 +59,7 @@ service:
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
   enabled: false
-  className: ""
+  className: ''
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
@@ -159,3 +159,19 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Test configuration for Helm tests
+tests:
+  enabled: true
+  container:
+    nameOverride: ''
+    imageRepository: 'alpine'
+    imageTag: '3.20'
+  scripts:
+    volumeName: 'tests'
+    volumeMountPath: '/tests'
+    runfilename: 'run.sh'
+  hookDeletePolicies: # This is for the hook delete policy more information can be found here: https://helm.sh/docs/topics/charts_hooks/#hook-delete-policy
+  - before-hook-creation # This is for the hook delete policy before the hook is created
+  - hook-succeeded 
+ 
